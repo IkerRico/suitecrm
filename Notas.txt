@@ -1,0 +1,19 @@
+Cosas que agregar a mi documentación
+Preparar pdf y si hay tiempo vue
+
+
+GESTOR DE BASE DE DATOS BDEAVER
+
+XAMP VERSION  Y SUITECRM
+Instalar xampp, y como saber que versiones necesito para correr suitecrm
+
+
+EXTENSIONES UTILES
+Docker for VSCODE
+
+
+DOCKER SUITECRM
+Configuracion docker para poder hacer imágenes (tengo dos ficheros),
+Mirar como conectar a un directorio para poder editar y lanzar lo que tienes tu en ese fichero
+
+ACADEMIA INFO

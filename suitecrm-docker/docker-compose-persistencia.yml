@@ -1,0 +1,46 @@
+version: "3.3"
+
+services:
+  mariadb:
+    image: mariadb:10.3
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=suitecrm
+      - MYSQL_USER=suitecrm
+      - MYSQL_PASSWORD=1234
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  suitecrm:
+    image: bitnami/suitecrm:7
+    ports:
+      - "8200:8080"
+      - "8443:8443"
+    environment:
+      - SUITECRM_DATABASE_HOST=mariadb
+      - SUITECRM_DATABASE_PORT_NUMBER=3306
+      - SUITECRM_DATABASE_USER=suitecrm
+      - SUITECRM_DATABASE_NAME=suitecrm
+      - SUITECRM_DATABASE_PASSWORD=1234
+      - SUITECRM_USERNAME=admin
+      - SUITECRM_PASSWORD=1234
+      - SITE_URL=http://localhost:8200
+      - ENABLE_INSTALLER=0
+    volumes:
+      - suitecrm_data:/bitnami/suitecrm
+    depends_on:
+      - mariadb
+
+volumes:
+  mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: C:\Users\User\Desktop\Proyectos\persistencia_docker\mariadb_data
+      o: bind
+  suitecrm_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: C:\Users\User\Desktop\Proyectos\persistencia_docker\suitecrm_data
+      o: bind
